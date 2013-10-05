@@ -67,13 +67,13 @@ public class World extends JPanel {
 	public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
         	movePlayerDown();
-        }
+            }
 	}
 	
 	public void keyTyped(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
         	movePlayerDown();
-        }
+            }
 	}
 	
 	// Paint methods
