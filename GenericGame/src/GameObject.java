@@ -4,7 +4,7 @@ import javax.swing.text.Position;
 
 
 public abstract class GameObject {
-	Point position;
+	private Point position;
 	
 	GameObject(int x, int y) {
 		position.x = x;
@@ -23,11 +23,31 @@ public abstract class GameObject {
 	void moveTo(Point position) {
 		this.position = position;
 	}
-	
-	void moveDown() {
-		moveTo(position.x, position.y+1);
+	public void moveDown() {
+		moveTo(position.x, position.y + 1);
 	}
 	
-	// abstract void paintComponent(Graphics g);
+	public void moveUp() {
+		moveTo(position.x, position.y - 1);
+	}
+
+	public void moveRight() {
+		moveTo(position.x + 1, position.y);
+	}
+
+	public void moveLeft() {
+		moveTo(position.x - 1, position.y);
+	}
 	
+	public int getX() {
+		return position.x;
+	}
+	
+	public int getY() {
+		return position.y;
+	}
+	
+	public Point getPosition() {
+		return position;
+	}
 }

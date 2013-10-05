@@ -31,22 +31,39 @@ public class World extends JPanel {
 		this.player = new Player(new Point(20,0));
 	}
 	
-	
-	// Player methods
-	
-	public void movePlayerDown() {
-		player.moveDown();
-	}
-
-
-	// Key Events delegated to the World class
-	
+	// Key Events delegated to the World class	
 	public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
         	movePlayerDown();
         }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        	movePlayerLeft();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        	movePlayerRight();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+        	movePlayerUp();
+        }
 	}
 	
+	// Player methods
+	public void movePlayerDown() {
+		player.moveDown();
+	}
+	
+	private void movePlayerUp() {
+		player.moveUp();	
+	}
+
+	private void movePlayerRight() {
+		player.moveRight();
+	}
+
+	private void movePlayerLeft() {
+		player.moveLeft();
+	}
+
 	public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
         	movePlayerDown();
@@ -62,8 +79,8 @@ public class World extends JPanel {
 	// Paint methods
 	
 	public void paintComponent(Graphics g) {
-		int x = player.position.x * DEFAULT_SQUARE_WIDTH;
-		int y = player.position.y * DEFAULT_SQUARE_HEIGHT;
+		int x = player.getX() * DEFAULT_SQUARE_WIDTH;
+		int y = player.getY() * DEFAULT_SQUARE_HEIGHT;
 		
 		g.fillRect(x, y, this.DEFAULT_SQUARE_WIDTH, DEFAULT_SQUARE_HEIGHT);		
 	}
@@ -88,7 +105,7 @@ public class World extends JPanel {
 	
 	// Main method for Testing
 	public static void main(String[] args) {
-		final World w = new World();
+		final World w = new World(450, 800);
 		JFrame f = new JFrame("test");
 		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

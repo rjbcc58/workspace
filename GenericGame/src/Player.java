@@ -2,8 +2,8 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 public class Player extends GameObject {
-	int health;
-	String name;
+	private int health;
+	private String name;
 	
 	Player(int x, int y) {
 		super(x, y);
@@ -14,5 +14,12 @@ public class Player extends GameObject {
 		super(position);
 		this.name = "ThePlayer";
 	}
+
+	public int getHealth() {
+		return this.health;
+	}
 	
+	public void setHealth(int health) {
+		this.health = health;
+	}
 }
